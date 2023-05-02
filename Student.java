@@ -1,20 +1,25 @@
-public class Students {
-    private volatile static int  idBase = 0;
+public class Student {
+    private volatile static int idBase = 0;
 
     private final int id;
-    private final String firstName;
-    private final String lastName;
+    private String firstName;
+    private String lastName;
 
-    Students(String firstName, String lastName) {
+    Student(String firstName, String lastName) {
         this.id = idBase++;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        rename(firstName, lastName);
 
     }
 
+
     public int getId() {
+
         return id;
     }
 
 
+    public void rename(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
